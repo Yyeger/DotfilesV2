@@ -1,0 +1,331 @@
+include theme
+
+### Variables
+
+# Global font (is actually set in fontconfig)
+set $uifont "monospace 10"
+
+exec bluetooth off
+exec mako
+exec_always xrdb -load ~/.Xresources
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Preferred terminal emulator
+set $term alacritty
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu wofi -Imi --show drun | xargs swaymsg exec -- 
+
+# Wallpaper
+set $wallpaper "~/Pictures/Wallpapers/serotonin.png"
+
+# Autotiling
+exec autotiling
+
+exec wmname LG3D
+
+# for Touchpad gestures
+# exec_always libinput-gestures-setup start
+
+    bindsym $mod+n exec thunar
+    bindsym $mod+o exec firefox
+
+   
+# Fallback color
+set $fallback "#4c4f69"
+
+# Lock command
+set $lock 'swaylock -f -i $wallpaper -c $fallback'
+
+# XWayland
+xwayland enabled
+
+### Output configuration
+
+output HDMI-A-1 resolution 1920x1080 position 1920,0
+
+# Set wallpaper
+output '*' bg $wallpaper fill $fallback
+
+# Start wlsunset
+exec wlsunset -t 4000 -T 4001
+
+# Start easyeffects
+#exec easyeffects --gapplication-service
+
+# Cursor/pointer theme and size
+seat seat0 xcursor_theme Breeze_Snow 14
+
+exec swayidle -w \
+    timeout 101000 'swaylock -f' \
+    timeout 314000 'swaymsg "output * dpms off"' \
+        resume  'swaymsg "output * dpms on"'  \
+    timeout 626000 'systemctl suspend ' \
+    before-sleep $lock
+ 
+# Lock screen on lid switch
+bindswitch --reload --locked lid:on exec 'systemctl suspend-then-hibernate'
+
+### Input configuration
+
+input type:touchpad {
+      dwt enabled
+      tap enabled
+      natural_scroll enabled
+}
+
+input type:keyboard xkb_layout "it"
+
+
+
+### Key bindings
+
+# Start a terminal
+bindsym $mod+Return exec $term 
+bindsym $mod+t exec $term 
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+d exec $menu
+
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# Lock screen
+bindsym $mod+l exec $lock
+
+# Exit sway (logs you out of your Wayland session)
+#bindsym $mod+Shift+e exec swaymsg exit
+
+# next/previous song   
+bindsym $mod+Shift+s exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next    
+bindsym $mod+Shift+a exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+bindsym $mod+w exec alacritty -e nmtui
+bindsym $mod+m exec spotify
+
+
+# Brightness control
+bindsym --locked XF86MonBrightnessDown exec ~/.config/user-scripts/brightness-control.sh down
+bindsym --locked XF86MonBrightnessUp exec ~/.config/user-scripts/brightness-control.sh up 
+
+
+# Volume control
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec ~/.config/user-scripts/volume-control.sh down
+bindsym --locked XF86AudioRaiseVolume exec ~/.config/user-scripts/volume-control.sh up
+
+# Volume control
+bindsym --locked $mod+XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked $mod+XF86AudioLowerVolume exec ~/.config/user-scripts/volume-control.sh down
+bindsym --locked $mod+XF86AudioRaiseVolume exec ~/.config/user-scripts/volume-control.sh up
+# Screenshots
+# Full screen
+bindsym $mod+s exec /usr/share/sway/scripts/grimshot save output
+bindsym $mod+Ctrl+Shift+XF86LaunchA exec /usr/share/sway/scripts/grimshot copy output
+# Selected area
+bindsym $mod+Shift+XF86LaunchB exec /usr/share/sway/scripts/grimshot save area
+bindsym $mod+Ctrl+Shift+XF86LaunchB exec /usr/share/sway/scripts/grimshot copy area
+# Specific window
+bindsym $mod+Shift+XF86KbdBrightnessDown exec /usr/share/sway/scripts/grimshot save window
+bindsym $mod+Ctrl+Shift+XF86KbdBrightnessDown exec /usr/share/sway/scripts/grimshot copy window
+
+# Move your focus around
+#bindsym $mod+$left focus left
+#bindsym $mod+$down focus down
+#bindsym $mod+$up focus up
+#bindsym $mod+$right focus right
+
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Set workspace variables
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1;
+bindsym $mod+Shift+2 move container to workspace number $ws2;
+bindsym $mod+Shift+3 move container to workspace number $ws3;
+bindsym $mod+Shift+4 move container to workspace number $ws4;
+bindsym $mod+Shift+5 move container to workspace number $ws5;
+bindsym $mod+Shift+6 move container to workspace number $ws6;
+bindsym $mod+Shift+7 move container to workspace number $ws7;
+bindsym $mod+Shift+8 move container to workspace number $ws8;
+bindsym $mod+Shift+9 move container to workspace number $ws9;
+bindsym $mod+Shift+0 move container to workspace number $ws10;
+
+# shrink windows
+
+bindsym $mod+Ctrl+Left resize shrink width 20 px or 20 ppt
+bindsym $mod+Ctrl+Down resize grow height 20 px or 20 ppt
+bindsym $mod+Ctrl+Up resize shrink height 20 px or 20 ppt
+bindsym $mod+Ctrl+Right resize grow width 20 px or 20 ppt
+
+
+
+# Enable floating for some programs
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+for_window [title="Virtual Machine Manager"] floating enable
+for_window [title="Library"] floating enable
+for_window [app_id="imv"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+
+# Toggle split
+#bindsym $mod+v splitt
+
+# Switch the current container between different layout styles
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+space floating toggle, resize set width 50 ppt height 55 ppt
+
+# Swap focus between the tiling area and the floating area
+#bindsym $mod+space focus mode_toggle
+
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+
+# Move the currently focused window to the scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+### Windows and borders
+
+# Gaps
+gaps inner 0
+gaps outer 0
+smart_gaps off
+
+# Borders
+smart_borders on
+hide_edge_borders --i3 none
+default_border pixel 1
+default_floating_border pixel 1
+for_window [app_id="imv"] border pixel 1
+
+# Colors                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $overlay0
+client.focused_inactive  $overlay0 $base $text  $rosewater $mantle
+client.unfocused         $overlay0 $base $text  $rosewater $mantle
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.background        $base
+
+# Font for title bar
+font $uifont
+
+include /etc/sway/config.d/*
+
+# set floating (nontiling)for apps needing it:
+for_window [class="Yad" instance="yad"] floating enable
+for_window [app_id="yad"] floating enable
+for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
+
+# set floating (nontiling) for special apps:
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
+for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+
+# set floating for window roles
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [title="Picture in picture"] floating enable, sticky enable
+for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [app_id="xsensors"] floating enable
+for_window [title="Save File"] floating enable
+
+# Inhibit idle
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle fullscreen
+for_window [app_id="vlc"] inhibit_idle fullscreen
+
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+# When the status_command prints a new line to stdout, swaybar updates.
+# The default just shows the current date and time.
+# status_command while date +'%A, %d-%m-%Y %H:%M %j'; do sleep 1; done
+#
+bar {
+    swaybar_command waybar
+    position top
+    mode hide
+    modifier Mod4
+}
+
+
+#boh roba strana di wayland
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
+
+# gestures instead of libinput
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+bindgesture swipe:3:up fullscreen
+bindgesture swipe:3:down fullscreen

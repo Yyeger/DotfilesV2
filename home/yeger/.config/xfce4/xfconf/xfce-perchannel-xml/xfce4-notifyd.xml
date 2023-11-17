@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-notifyd" version="1.0">
+  <property name="log-max-size-enabled" type="bool" value="true"/>
+  <property name="applications" type="empty">
+    <property name="known_applications" type="array">
+      <value type="string" value="change-brightness"/>
+      <value type="string" value="change-volume"/>
+      <value type="string" value="dunstify"/>
+      <value type="string" value="fish"/>
+      <value type="string" value="notify-send"/>
+    </property>
+  </property>
+</channel>

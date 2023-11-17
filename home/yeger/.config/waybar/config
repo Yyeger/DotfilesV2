@@ -1,0 +1,91 @@
+{
+	"position": "top",
+    "bar_id": "bar-0",
+    "ipc": true,
+	"modules-left": [
+		"sway/mode",
+		"sway/workspaces"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"tray",
+		"bluetooth",
+		"network",
+		"wireplumber",
+		"battery"
+	],
+	"height": 25,
+	"margin-top": 6,
+	"margin-left": 6,
+	"margin-right": 6,
+	"margin-bottom": 0,
+	"spacing": 2,
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"disable-markup": false,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "1",
+			"2": "2",
+			"3": "3",
+			"4": "4",
+			"5": "5",
+			"6": "6",
+			"7": "7",
+			"8": "8",
+			"9": "9",
+			"10": "10"
+		},
+		"persistent_workspaces": {
+		}
+	},
+	"network": {
+		"format-wifi": " {signalStrength:3}%",
+		"format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+		"format-linked": "{ifname} (No IP)",
+		"format-disconnected": "󰤯  {signalStrength:3}%",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"wireplumber": {
+		"format": " {volume:3}%",
+		"format-muted": "󰖁 {volume:3}%",
+		"on-click": "pavucontrol",
+	},
+	"battery": {
+		"bat": "BAT0",
+		"adapter": "ADP1",
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}  {capacity:3}%",
+		"format-charging": " {capacity:3}%",
+		"format-plugged": "  {capacity:3}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"interval": 10
+	},
+	"clock": {
+		"format": " {:%H:%M}",
+		"format-alt": " {:%Y-%m-%d %H:%M}",
+		"interval": 60
+	},
+	"sway/language": {
+		"format": "  {short}",
+	},
+    "bluetooth": {
+	  	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	  	"format": " {status}",
+	  	"format-connected": " {device_alias}",
+	  	"on-click":"blueman-manager",
+	  	"on-click-right":"bluetoothctl power off"
+    }
+}

@@ -1,0 +1,11 @@
+set selection-clipboard clipboard
+set page-padding 5
+set statusbar-v-padding 4
+set statusbar-h-padding 20
+set statusbar-basename true
+set font "monospace normal 10"
+
+map i zoom in
+map o zoom out
+
+include theme

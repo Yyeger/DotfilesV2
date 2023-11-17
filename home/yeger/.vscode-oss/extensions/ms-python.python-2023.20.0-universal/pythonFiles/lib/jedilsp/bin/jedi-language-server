@@ -1,0 +1,8 @@
+#!/opt/hostedtoolcache/pyenv_root/2.3.23/x64/versions/3.8.17/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+from jedi_language_server.cli import cli
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(cli())
