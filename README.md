@@ -3,20 +3,19 @@ Sway / Arch / Nord-Theme
 
 random stuff i use / like / need to remember:
 
-spotify with spicetify ( runs on xwayland )
-firefox with cascade and some extensions like dark-reader and ublock-origin, i should add arkennfox user.js
-alacritty with fish
-sway (i try to run everything natively on wayland), no problem with screensharing after setting up xdg portals (xfce4 as a backup)
-thunar
-micro editor or codium/intellij-community
-tlp and tlp-rdw has been great for battery life
-standard linux kernel (didn't like the zen)
-zathura
-pipewire
-btrfs with swapfile that let's me hibernite (no zswap)
-no dual-boot (if wine/proton/a vm with windows can't run it i'll not use it)
-grub
-i'd like to move away from systemd in the future
+spotify with spicetify ( runs on xwayland ) \
+firefox with cascade and some extensions like dark-reader and ublock-origin, i should add arkennfox user.js \
+alacritty with fish \
+sway (i try to run everything natively on wayland), no problem with screensharing after setting up xdg portals (xfce4 as a backup) \
+micro editor or codium/intellij-community \
+tlp and tlp-rdw has been great for battery life \
+standard linux kernel (didn't like the zen) \
+zathura \
+pipewire \
+btrfs with swapfile that let's me hibernite (no zswap) \
+no dual-boot (if wine/proton/a vm with windows can't run it i'll not use it) \
+grub \
+i'd like to move away from systemd in the future \
 sometimes had problems with cursor size / font / theme inconsistency, fixed with random env variables and configs
 
 
