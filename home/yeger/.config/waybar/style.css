@@ -57,7 +57,9 @@ window#waybar {
 .modules-left>widget:first-child>#workspaces {
 	border-left: 1px solid @overlay0;
 }
-
+.modules-right>widget:last-child>#battery {
+	border-right: 1px solid @overlay0;
+}
 #mode {
 	color: @base;
 	background-color: @red;
