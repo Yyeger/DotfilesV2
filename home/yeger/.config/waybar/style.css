@@ -78,6 +78,14 @@ window#waybar {
 	border-top: 1px solid @overlay0;
 }
 
+#custom-spotify {
+	background: @base;
+	padding: 0px 10px 2px 10px;
+	color: @text;
+	border-bottom: 1px solid @overlay0;
+	border-top: 1px solid @overlay0;
+}
+
 #language {
 	border-right: 1px solid @overlay0;
 }

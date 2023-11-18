@@ -4,7 +4,8 @@
     "ipc": true,
 	"modules-left": [
 		"sway/mode",
-		"sway/workspaces"
+		"sway/workspaces",
+		"custom/spotify"
 	],
 	"modules-center": [
 		"clock"
@@ -87,5 +88,13 @@
 	  	"format-connected": " {device_alias}",
 	  	"on-click":"blueman-manager",
 	  	"on-click-right":"bluetoothctl power off"
-    }
+    },
+    "custom/spotify": {
+                "exec": "/usr/bin/python3 /home/yeger/.config/waybar/scripts/mediaplayer.py --player spotify",
+                "format": "{} ",
+                "return-type": "json",
+                "on-click": "playerctl play-pause",
+                "on-click-right": "playerctl next",
+                "on-click-middle": "playerctl previous"
+            }
 }
