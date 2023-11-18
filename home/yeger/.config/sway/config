@@ -117,7 +117,7 @@ bindsym $mod+Shift+s exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.
 bindsym $mod+Shift+a exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 bindsym $mod+w exec alacritty -e nmtui
-bindsym $mod+m exec spotify
+bindsym $mod+m exec spotify --enable-features=WaylandWindowDecorations --ozone-platform=wayland %u
 
 
 # Brightness control

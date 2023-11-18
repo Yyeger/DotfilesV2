@@ -3,7 +3,7 @@ Sway / Arch / Nord-Theme
 
 random stuff i use / like / need to remember:
 
-spotify with spicetify ( runs on xwayland ) \
+spotify with spicetify ( runs on xwayland FIXED WITH FLAG ozone ) \
 firefox with cascade and some extensions like dark-reader and ublock-origin, i should add arkennfox user.js \
 alacritty with fish \
 sway (i try to run everything natively on wayland), no problem with screensharing after setting up xdg portals (xfce4 as a backup) \
