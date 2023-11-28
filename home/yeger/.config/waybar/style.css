@@ -60,6 +60,9 @@ window#waybar {
 .modules-right>widget:last-child>#battery {
 	border-right: 1px solid @overlay0;
 }
+.modules-right>widget:last-child>#wireplumber {
+	border-right: 1px solid @overlay0;
+}
 #mode {
 	color: @base;
 	background-color: @red;
