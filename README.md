@@ -6,7 +6,7 @@ random stuff i use / like / need to remember:
 spotify with spicetify ( runs on xwayland FIXED WITH FLAG ozone ) \
 UPDATE: bye bye spotify, time to stop using DRM content and a limited platform, Youtube-Music is my new best friend \
 code-oss (using ozone waylnd flags to run natively) \
-firefox with cascade and some extensions like dark-reader and ublock-origin, i should add arkennfox user.js \
+firefox with cascade and some extensions like dark-reader and ublock-origin, followed github.com/yokoffing/Betterfox, not added to the dotfiles because its not worth it, better configure it manually each time\
 alacritty with fish \
 sway (i try to run everything natively on wayland), no problem with screensharing after setting up xdg portals (xfce4 as a backup) \
 micro editor or codium/intellij-community \
