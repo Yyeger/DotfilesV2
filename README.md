@@ -20,6 +20,8 @@ grub \
 i'd like to move away from systemd in the future \
 sometimes had problems with cursor size / font / theme inconsistency, fixed with random env variables and configs
 
+update 10/12/23:
+I recently noticed a higher ram usage and more stuttering in my system, i think the two possible causes are the persistent swap file instead of zswap and switching to linux-zen to be able to use waydroid. i'll investigate more and think about switching back. 
 
 ![2023-11-17T13:25:15,036576315+01:00](https://github.com/Yyeger/DotfilesV2/assets/82652619/34a7038e-2c7e-43d7-8fb5-1adeb38d6040)
 ![2023-11-17T13:25:22,795793679+01:00](https://github.com/Yyeger/DotfilesV2/assets/82652619/9f2ff68d-3bd8-4496-8819-d72e6661bc51)
