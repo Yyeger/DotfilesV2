@@ -53,7 +53,7 @@
 	"wireplumber": {
 		"format": " {volume:3}%",
 		"format-muted": "󰖁 {volume:3}%",
-		"on-click": "pavucontrol",
+		"on-click": "alacritty -e ncpamixer",
 	},
 	"battery": {
 		"bat": "BAT0",
