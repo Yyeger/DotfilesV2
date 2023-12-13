@@ -86,7 +86,7 @@
 	  	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	  	"format": " {status}",
 	  	"format-connected": " {device_alias}",
-	  	"on-click":"blueman-manager",
+	  	"on-click":"alacritty -e bluetuith",
 	  	"on-click-right":"bluetoothctl power off"
     },
     "custom/spotify": {
