@@ -5,6 +5,7 @@ random stuff i use / like / need to remember:
 
 spotify with spicetify ( runs on xwayland FIXED WITH FLAG ozone ) \
 UPDATE: bye bye spotify, time to stop using DRM content and a limited platform, Youtube-Music is my new best friend \
+UPDATE 2: bye bye youtube music too, now playing mp3s from cmus like a real man \
 code-oss (using ozone waylnd flags to run natively) \
 firefox with cascade and some extensions like dark-reader and ublock-origin, followed github.com/yokoffing/Betterfox, not added to the dotfiles because its not worth it, better configure it manually each time\
 alacritty with fish \
